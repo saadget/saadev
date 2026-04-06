@@ -1038,7 +1038,18 @@
       }
 
       .hero {
-        padding: 120px 20px 60px 20px;
+        padding: 110px 20px 60px 20px;
+        justify-content: flex-start;
+      }
+
+      .hero-brand {
+        display: none !important;
+      }
+
+      .hero-badge {
+        margin: 0 auto 24px auto;
+        display: flex; /* switch to flex from inline-flex so margin:auto definitely works, or keep inline-flex. Just center it. */
+        width: fit-content;
       }
 
       .hero-h1 {
