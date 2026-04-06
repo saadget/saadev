@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SaaDev — Self-Evolving Digital Architecture</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="antigravity-global.js" defer></script>
+  <script src="/antigravity-global.js" defer></script>
   <style>
     * {
       margin: 0;
@@ -1077,6 +1077,58 @@
       .cta-headline {
         font-size: 32px;
       }
+
+      /* Mobile Navigation Menu */
+      .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 100000;
+        padding: 10px;
+      }
+
+      .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #fff;
+        transition: 0.3s;
+      }
+
+      .nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      .nav-toggle.active span:nth-child(2) { opacity: 0; }
+      .nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        background: #0a0a0a;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        gap: 30px !important;
+        z-index: 99998;
+        padding-top: 80px;
+        transition: 0.3s ease-in-out;
+      }
+
+      .nav-links.active {
+        display: flex !important;
+      }
+
+      .nav-links a {
+        font-size: 16px !important;
+        color: #fff !important;
+      }
+    }
+
+    /* ── NAV TOGGLE DESKTOP HIDE ── */
+    .nav-toggle {
+      display: none;
     }
   </style>
 </head>
@@ -1091,12 +1143,19 @@
   <nav class="hero-nav">
 
     <a class="nav-logo" href="#">
-      <img src="logo.png" alt="SaaDev"
+      <img src="/logo.png" alt="SaaDev"
         style="height: 36px; width: auto; object-fit: contain; pointer-events: none; cursor: default; image-rendering: crisp-edges; mix-blend-mode: screen;" />
     </a>
     <div class="nav-bg-glow"></div>
     <div class="nav-accent"></div>
-    <ul class="nav-links">
+
+    <button class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
 
       <li><a href="#work">Work</a></li>
 
@@ -1434,6 +1493,27 @@
         navbar.classList.remove('scrolled');
       }
     }, { passive: true });
+
+    // MOBILE MENU LOGIC
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const links = document.querySelectorAll('.nav-links a');
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+      });
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        });
+      });
+    }
   </script>
   <div id="tags"
     style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;"></div>
