@@ -1026,7 +1026,13 @@
         display: none;
       }
 
+      .nav-logo {
+        order: 1;
+      }
+
       .nav-cta {
+        order: 2;
+        margin: 0 auto;
         padding: 8px 16px;
         font-size: 10px;
       }
@@ -1086,6 +1092,7 @@
 
       /* Mobile Navigation Menu */
       .nav-toggle {
+        order: 3;
         display: flex;
         flex-direction: column;
         gap: 6px;
@@ -1110,23 +1117,29 @@
 
       .nav-links {
         display: flex !important;
-        position: fixed;
-        inset: 0;
-        background: #0a0a0a;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 20px;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(128, 0, 0, 0.3);
+        border-radius: 12px;
         flex-direction: column !important;
         justify-content: center;
         align-items: center;
-        gap: 30px !important;
+        gap: 20px !important;
         z-index: 99998;
-        padding-top: 80px;
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-        transform: translateX(100%);
+        padding: 24px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform: translateY(-10px);
         opacity: 0;
         pointer-events: none;
+        width: 200px;
       }
 
       .nav-links.active {
-        transform: translateX(0);
+        transform: translateY(0);
         opacity: 1;
         pointer-events: all;
       }
