@@ -86,6 +86,10 @@
     }
 
 
+    .nav-toggle {
+      display: none;
+    }
+
     .nav-accent {
       position: absolute;
       right: 180px;
@@ -1124,11 +1128,26 @@
         font-size: 16px !important;
         color: #fff !important;
       }
-    }
 
-    /* ── NAV TOGGLE DESKTOP HIDE ── */
-    .nav-toggle {
-      display: none;
+      /* WhatsApp Floating Button Mobile Update */
+      #stickyBtn {
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 0;
+        gap: 0;
+        box-shadow: 0 8px 30px rgba(74, 14, 14, 0.8);
+      }
+
+      #stickyBtn svg {
+        width: 28px;
+        height: 28px;
+        margin: 0;
+      }
     }
   </style>
 </head>
