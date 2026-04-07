@@ -1118,9 +1118,67 @@
         margin-left: 0 !important;
       }
       .nav-cta, .btn-cta, a[href="#contact"].btn { order: 2 !important; margin: 0 auto !important; }
-      .hamburger, .nav-toggle, button.menu-btn { order: 3 !important; display: flex !important; }
-      .nav-links, .nav-menu { display: none !important; }
-      .nav-links.active, .nav-menu.active { display: flex !important; flex-direction: column !important; position: absolute !important; top: 70px !important; right: 0 !important; background: #111 !important; width: 200px !important; padding: 1rem !important; z-index: 999 !important; }
+      
+      /* Hamburger Toggle */
+      .nav-toggle {
+        order: 3 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        z-index: 100000 !important; /* Above drawer */
+        padding: 5px !important;
+      }
+      .nav-toggle span {
+        display: block !important;
+        width: 28px !important;
+        height: 2px !important;
+        background: #fff !important;
+        transition: 0.3s ease-in-out !important;
+      }
+      /* Animate Hamburger into X */
+      .nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg) !important; }
+      .nav-toggle.active span:nth-child(2) { opacity: 0 !important; }
+      .nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg) !important; }
+
+      /* Full Screen Drawer */
+      .nav-links, .nav-menu {
+        display: none !important;
+      }
+      .nav-links.active, .nav-menu.active {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        background: #050505 !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        width: 100% !important;
+        height: 100vh !important;
+        padding: 2rem !important;
+        margin: 0 !important;
+        z-index: 99999 !important;
+        gap: 40px !important;
+      }
+      
+      .nav-links.active li {
+        list-style: none !important;
+      }
+      
+      .nav-links.active a {
+        font-family: 'Inter', sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 600 !important;
+        color: #fff !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+        text-shadow: none !important;
+      }
     }
 
     @media (max-width: 768px) {
