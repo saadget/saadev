@@ -1113,6 +1113,43 @@
       .nav-links, .nav-menu { display: none !important; }
       .nav-links.active, .nav-menu.active { display: flex !important; flex-direction: column !important; position: absolute !important; top: 70px !important; right: 0 !important; background: #111 !important; width: 200px !important; padding: 1rem !important; z-index: 999 !important; }
     }
+
+    @media (max-width: 768px) {
+      /* Remove extra space, margins, and min-height on mobile */
+      section,
+      .cta-section,
+      .contact-section,
+      .section-padding,
+      #work,
+      #about,
+      #contact {
+        min-height: auto !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+        height: auto !important;
+        display: block !important;
+      }
+      
+      /* Ensure tags container and tags don't create external scrollable space */
+      body, html {
+        overflow-x: hidden !important;
+      }
+      
+      #tags {
+        position: absolute !important;
+        pointer-events: none !important;
+        overflow: hidden !important;
+        height: 100% !important;
+        width: 100% !important;
+      }
+      
+      .tag {
+        position: absolute !important;
+        pointer-events: none !important;
+      }
+    }
   </style>
 </head>
 
