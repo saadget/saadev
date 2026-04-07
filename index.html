@@ -1528,7 +1528,21 @@
 <!-- MOBILE HAMBURGER MENU -->
 <style>
 @media (max-width: 768px) {
+  .nav-logo {
+    order: 1 !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+  }
+  .nav-cta {
+    order: 2 !important;
+    margin: 0 auto !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
   .nav-toggle {
+    order: 3 !important;
+    margin-left: auto !important;
     display: flex !important;
     flex-direction: column;
     justify-content: space-between;
